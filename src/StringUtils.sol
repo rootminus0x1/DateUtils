@@ -5,7 +5,7 @@ pragma solidity >=0.4.24 <0.9.0;
 
 /// @title String Utils - String utility functions
 /// @author Piper Merriam - <pipermerriam@gmail.com>
-library StringLib {
+library StringUtils {
     /// @dev Converts an unsigned integert to its string representation.
     /// @param v The number to be converted.
     function uintToBytes(uint256 v) public pure returns (bytes32 ret) {
@@ -53,25 +53,5 @@ library StringLib {
         assembly {
             result := mload(add(_src, 32))
         }
-    }
-}
-
-/// @title String Utils - String utility functions
-/// @author Piper Merriam - <pipermerriam@gmail.com>
-library StringUtils {
-    /// @dev Converts an unsigned integert to its string representation.
-    /// @param v The number to be converted.
-    function uintToBytes(uint256 v) public pure returns (bytes32 ret) {
-        return StringLib.uintToBytes(v);
-    }
-
-    /// @dev Converts a numeric string to it's unsigned integer representation.
-    /// @param v The string to be converted.
-    function bytesToUInt(bytes32 v) public pure returns (uint256 ret) {
-        return StringLib.bytesToUInt(v);
-    }
-
-    function stringToBytes32(string memory _src) public pure returns (bytes32) {
-        return StringLib.stringToBytes32(_src);
     }
 }
